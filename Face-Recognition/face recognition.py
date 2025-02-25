@@ -28,16 +28,16 @@ def find_target_face():
         filename = person[1]
 
         is_target_face = fr.compare_faces([encoded_face], target_encoding, tolerance=0.55)[0]
-        print(f'{filename} is {"Giri" if is_target_face else "Not Giri"}')
+        print(f'{filename} is {"matched" if is_target_face else "Not matched"}')
 
         if any(face_locations):
             face_number = 0
             for location in face_locations:
                 if is_target_face:
-                    label = "Giri"
+                    label = "matched"
                     create_frame(location, label)
                 else:
-                    label = "Not Giri"
+                    label = "Not matched"
                     create_frame(location, label)
                 face_number += 1
 
